@@ -1,15 +1,25 @@
 {
   "name": "multi-regl-transform",
   "version": "1.0.0",
-  "description": "browserify transform to transparently convert the [regl][1] API to use [multi-regl][2]",
+  "description": "browserify transform to transparently convert the regl] API to use multi-regl",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "regl",
+    "multi-regl",
+    "browserify",
+    "browserify transform"
+  ],
+  "author": "substack",
+  "license": "BSD",
   "dependencies": {
     "static-module": "^1.3.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/substack/multi-regl-transform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/substack/multi-regl-transform/issues"
+  },
+  "homepage": "https://github.com/substack/multi-regl-transform#readme"
 }
