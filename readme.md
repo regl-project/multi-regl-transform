@@ -44,6 +44,14 @@ or from package.json:
 }
 ```
 
+# install
+
+Install both `multi-regl-transform` and `multi-regl`:
+
+```
+$ npm install multi-regl-transform multi-regl
+```
+
 # license
 
 BSD
