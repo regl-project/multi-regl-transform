@@ -1,6 +1,6 @@
 {
   "name": "multi-regl-transform",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "browserify transform to transparently convert the regl] API to use multi-regl",
   "main": "index.js",
   "keywords": [
