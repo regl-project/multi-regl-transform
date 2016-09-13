@@ -10,15 +10,30 @@ module.exports = function (file, opts) {
       return '((function () {'
         + 'if (typeof __MULTIREGL === "undefined") {\n'
         + '__MULTIREGL = require("multi-regl")()\n'
+        + '__MULTIREGL_IX = 0\n'
         + '}\n'
-        + 'var div = document.createElement("div")\n'
-        + target + '.appendChild(div)\n'
-        + 'div.style.width = "' + (opts.width || '400px') + '"\n'
-        + 'div.style.height = "' + (opts.height || '300px') + '"\n'
-        + 'div.style.display = '
+        + 'var element = document.createElement("div")\n'
+        + 'var i = __MULTIREGL_IX\n'
+        + (opts['class'] ? 'element.setAttribute("class",'
+          + interp(opts['class'])+')\n' : '')
+        + (opts.id ? 'element.setAttribute("id",'
+          + interp(opts.id)+')\n' : '')
+        + target + '.appendChild(element)\n'
+        + 'element.style.width = "' + (opts.width || '400px') + '"\n'
+        + 'element.style.height = "' + (opts.height || '300px') + '"\n'
+        + 'element.style.display = '
           + JSON.stringify(opts.display || 'inline-block') + '\n'
-        + 'return __MULTIREGL(div)\n'
+        + (opts.code ? ';(function(){'+opts.code+'})()' : '') + '\n'
+        + '__MULTIREGL_IX++\n'
+        + 'return __MULTIREGL(element)\n'
         + '})())'
     }
   })
+}
+
+function interp (str) {
+  return '"' + str.replace(/\$\{([^}]+)\}|"/g, function (_, x) {
+    if (_ === '"') return '\\"'
+    return '"+(' + x + ')+"'
+  }) + '"'
 }

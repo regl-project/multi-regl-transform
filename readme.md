@@ -49,6 +49,12 @@ or from package.json:
 * `width` - width of the regl canvas. default: 400
 * `height` - height of the regl canvas. default: 300
 * `target` - target element query selector to append to. default: `body`
+* `display` - set the css display style. default: inline-block
+* `code` - execute a javascript code string before calling multiregl
+* `class` - set the class of the element. May contain code in `${}`.
+* `id` - set the id of the element. May contain code in `${}`.
+
+For all code options, `element` and the element index `i` are in scope.
 
 # install
 
