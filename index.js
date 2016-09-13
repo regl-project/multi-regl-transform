@@ -15,7 +15,8 @@ module.exports = function (file, opts) {
         + target + '.appendChild(div)\n'
         + 'div.style.width = "' + (opts.width || '400px') + '"\n'
         + 'div.style.height = "' + (opts.height || '300px') + '"\n'
-        + 'div.style.display = "inline-block"\n'
+        + 'div.style.display = '
+          + JSON.stringify(opts.display || 'inline-block') + '\n'
         + 'return __MULTIREGL(div)\n'
         + '})())'
     }
