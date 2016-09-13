@@ -44,6 +44,12 @@ or from package.json:
 }
 ```
 
+# options
+
+* `width` - width of the regl canvas. default: 400
+* `height` - height of the regl canvas. default: 300
+* `target` - target element query selector to append to. default: `body`
+
 # install
 
 Install both `multi-regl-transform` and `multi-regl`:
