@@ -1,5 +1,8 @@
 var staticModule = require('static-module')
+var through = require('through2')
+
 module.exports = function (file, opts) {
+  if (/\.json$/.test(file)) return through()
   return staticModule({
     regl: function () {
       var target = opts.target || 'document.body'
