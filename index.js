@@ -4,15 +4,17 @@ var through = require('through2')
 module.exports = function (file, opts) {
   if (/\.json$/.test(file)) return through()
   return staticModule({
-    regl: function () {
+    regl: function (ropts) {
       var target = opts.target || 'document.body'
       if (target === 'body') target = 'document.body'
       if (target !== 'document.body') {
         target = 'document.querySelector(' + JSON.stringify(target) + ')'
       }
+      var extensions = ropts && ropts.extensions || []
       return '((function () {'
         + 'if (typeof __MULTIREGL === "undefined") {\n'
-        + '__MULTIREGL = require("multi-regl")()\n'
+        + '__MULTIREGL = require("multi-regl")({'
+          + 'extensions:'+JSON.stringify(extensions) + '})\n'
         + '__MULTIREGL_IX = 0\n'
         + '}\n'
         + 'var element = document.createElement("div")\n'
